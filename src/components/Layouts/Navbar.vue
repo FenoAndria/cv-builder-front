@@ -3,7 +3,7 @@
     class="
       relative
       w-full
-      flex 
+      flex
       items-center
       justify-center
       py-4
@@ -20,7 +20,7 @@
       class="
         container-fluid
         w-full
-        flex flex-wrap  
+        flex flex-wrap
         items-center
         justify-between
         px-6
@@ -91,7 +91,7 @@
         <!-- Left links -->
         <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
           <li class="nav-item p-2" v-for="link in links">
-            <router-link 
+            <router-link
               active-class="nav-link-active"
               :to="{ name: link.name }"
               :class="'nav-link text-maroon hover:text-orange focus:text-orange p-0 '"
@@ -221,8 +221,6 @@ export default {
       active: "",
     };
   },
-  mounted() {
-    
-  },
+  mounted() {},
 };
 </script>

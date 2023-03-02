@@ -1,11 +1,9 @@
-
 <template>
   <div class=" min-h-screen">
     <Navbar />
     <div class="container py-2 px-32">
       <MainCard>
         <router-view />
-        <h1>COUCOU</h1>
       </MainCard>
     </div>
   </div>
