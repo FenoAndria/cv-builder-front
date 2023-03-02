@@ -1,10 +1,16 @@
 import { createRouter, createWebHistory } from "vue-router";
+import NotFound from '../components/Layouts/NotFound.vue'
 import ProfilIndex from '../views/Profil/Index.vue'
 import ProfilEdit from '../views/Profil/edit.vue'
-import NotFound from '../components/Layouts/NotFound.vue'
+import Login from '../views/Auth/Login.vue'
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        {
+            path:'/login',
+            name:'login',
+            component:Login
+        },
         {
             path: '/profil/',
             name: 'profil',
