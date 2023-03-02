@@ -118,14 +118,14 @@ export default {
         .then((result) => {
           this.$store.commit("SET_LOADING_SUBMIT", false);
           this.errors = "";
-          this.$router.push({name:'ProfilIndex'})
+          this.$router.push({name:'profil'})
           console.log(result.data);
         })
         .catch((err) => {
           this.$store.commit("SET_LOADING_SUBMIT", false);
-          let { errors } = err.response.data;
-          this.errors = errors;
-          console.log(err.response.data);
+          // let { errors } = err.response.data;
+          // this.errors = errors;
+          console.log(err);
         });
     },
     handleFilePondInit: function () {

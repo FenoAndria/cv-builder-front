@@ -20,7 +20,6 @@ const mutations = {
     SET_PROFIL_PUBLISHED: (state, profil_published) => state.profil_published = profil_published,
     SET_LOADING_PROFIL: (state, loadingProfil) => state.loadingProfil = loadingProfil,
     SET_LOADING_COUNTER: (state, loadingCounter) => state.loadingCounter = loadingCounter,
-    // ADD_LANGUES: (state, type_produit) => state.types_produit.unshift(type_produit)
 }
 const actions = {
     GET_PROFIL: async ({ commit }) => {
