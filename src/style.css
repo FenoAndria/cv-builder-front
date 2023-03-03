@@ -41,3 +41,6 @@ label {
 select {
   @apply text-base text-dark block
 }
+.mask{
+  @apply bg-maroon
+}
