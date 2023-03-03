@@ -24,15 +24,15 @@ const mutations = {
 }
 const actions = {
     GET_PROFIL: async ({ commit }) => {
-        commit('SET_LOADING_DATA', true)
+        commit('SET_LOADING_PROFIL', true)
         await API().get('profil/')
             .then((result) => {
-                commit('SET_LOADING_DATA', false)
+                commit('SET_LOADING_PROFIL', false)
                 commit('SET_PROFIL', result.data.profil)
                 console.log(result);
             })
             .catch((err) => {
-                commit('SET_LOADING_DATA', false)
+                commit('SET_LOADING_PROFIL', false)
                 console.log(err.response);
             })
     },

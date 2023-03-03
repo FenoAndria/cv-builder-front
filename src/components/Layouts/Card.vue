@@ -1,10 +1,10 @@
 <template>
-    <div class="bg-white p-8 rounded-lg shadow-md ">
+    <div class="bg-maroon p-4 my-1 rounded-lg shadow-lg text-gray-200">
         <slot></slot>
     </div>
 </template>
 <script>
 export default {
-    name: 'MainCard'
+    name: 'Card'
 }
 </script>
