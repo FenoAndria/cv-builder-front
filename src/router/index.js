@@ -9,6 +9,8 @@ import FormationIndex from '../views/Formations/Index.vue'
 import FormationEdit from '../views/Formations/Edit.vue'
 import CompetenceIndex from '../views/Competences/Index.vue'
 import CompetenceEdit from '../views/Competences/Edit.vue'
+import LangueIndex from '../views/Langues/Index.vue'
+import LangueEdit from '../views/Langues/Edit.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -84,6 +86,19 @@ const router = createRouter({
         {
             path: '/langues',
             name: 'langues',
+            redirect: { name: 'langueIndex' },
+            children: [
+                {
+                    path: 'index',
+                    name: 'langueIndex',
+                    component: LangueIndex,
+                },
+                {
+                    path: ':id',
+                    name: 'langueEdit',
+                    component: LangueEdit,
+                },
+            ]
         },
         {
             path: '/autres',

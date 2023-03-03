@@ -5,6 +5,7 @@ import experiences from './experiences'
 import formations from './formations'
 import form_validation_errors from './form_validation_errors'
 import competences from './competences'
+import langues from './langues'
 
 const store = new Vuex.Store({
     modules: {
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
         formations,
         form_validation_errors,
         competences,
+        langues,
     }
 })
 export default store

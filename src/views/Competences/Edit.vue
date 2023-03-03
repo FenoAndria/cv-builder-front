@@ -20,7 +20,7 @@
               type="radio"
               name="rating-1"
               class="mask  mask-star "
-              v-for="(item, index) in evaluationIteration"
+              v-for="(item, index) in (1,5)"
               :key="index"
               :checked="item == COMPETENCE.evaluation"
               :value="item"
@@ -48,7 +48,6 @@ export default {
   name: "CompetenceEdit",
   data() {
     return {
-      evaluationIteration: [1, 2, 3, 4, 5],
     };
   },
   components: {
