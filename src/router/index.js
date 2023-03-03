@@ -5,12 +5,16 @@ import ProfilIndex from '../views/Profil/Index.vue'
 import ProfilEdit from '../views/Profil/edit.vue'
 import ExperienceIndex from '../views/Experiences/Index.vue'
 import ExperienceEdit from '../views/Experiences/Edit.vue'
+import ExperienceCreate from '../views/Experiences/Create.vue'
 import FormationIndex from '../views/Formations/Index.vue'
 import FormationEdit from '../views/Formations/Edit.vue'
+import FormationCreate from '../views/Formations/Create.vue'
 import CompetenceIndex from '../views/Competences/Index.vue'
 import CompetenceEdit from '../views/Competences/Edit.vue'
+import CompetenceCreate from '../views/Competences/Create.vue'
 import LangueIndex from '../views/Langues/Index.vue'
 import LangueEdit from '../views/Langues/Edit.vue'
+import LangueCreate from '../views/Langues/Create.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -43,6 +47,11 @@ const router = createRouter({
                     component: ExperienceIndex,
                 },
                 {
+                    path: 'create',
+                    name: 'experienceCreate',
+                    component: ExperienceCreate,
+                },
+                {
                     path: ':id',
                     name: 'experienceEdit',
                     component: ExperienceEdit,
@@ -64,6 +73,11 @@ const router = createRouter({
                     name: 'formationEdit',
                     component: FormationEdit,
                 },
+                {
+                    path: 'create',
+                    name: 'formationCreate',
+                    component: FormationCreate,
+                },
             ]
         },
         {
@@ -75,6 +89,11 @@ const router = createRouter({
                     path: 'index',
                     name: 'competenceIndex',
                     component: CompetenceIndex,
+                },
+                {
+                    path: 'create',
+                    name: 'competenceCreate',
+                    component: CompetenceCreate,
                 },
                 {
                     path: ':id',
@@ -92,6 +111,11 @@ const router = createRouter({
                     path: 'index',
                     name: 'langueIndex',
                     component: LangueIndex,
+                },
+                {
+                    path: 'create',
+                    name: 'langueCreate',
+                    component: LangueCreate,
                 },
                 {
                     path: ':id',

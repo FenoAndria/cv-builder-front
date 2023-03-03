@@ -58,6 +58,7 @@
           <p>Aucune formation enregistrée</p>
         </div>
       </div>
+      <bottom-button link="formationCreate"/>
 
       <Modal modalId="modalShowFormation">
         <div class="" v-if="this.formation">
@@ -84,6 +85,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+import BottomButton from '../../components/Layouts/BottomButton.vue';
 import Card from "../../Components/Layouts/Card.vue";
 import HeadTitle from "../../Components/Layouts/HeadTitle.vue";
 import Modal from "../../Components/Layouts/Modal.vue";
@@ -100,6 +102,7 @@ export default {
     HeadTitle,
     Card,
     Modal,
+    BottomButton,
   },
   computed: {
     ...mapGetters(["LOADING_DATA", "FORMATIONS_LIST"]),

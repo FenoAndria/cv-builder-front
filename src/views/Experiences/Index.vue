@@ -55,7 +55,7 @@
           <p>Aucune expérience enregistrée</p>
         </div>
       </div>
-
+      <BottomButton link="experienceCreate"/>
       <Modal modalId="modalShowExperience">
         <div class="" v-if="this.experience">
           <p class="font-bold text-2xl">{{ this.experience.titre_poste }}</p>
@@ -80,6 +80,7 @@ import { mapGetters } from "vuex";
 import HeadTitle from "../../components/Layouts/HeadTitle.vue";
 import Card from "../../components/Layouts/Card.vue";
 import Modal from "../../components/Layouts/Modal.vue";
+import BottomButton from "../../components/Layouts/BottomButton.vue";
 export default {
   name: "ExperienceIndex",
   data() {
@@ -93,6 +94,7 @@ export default {
     HeadTitle,
     Card,
     Modal,
+    BottomButton
   },
   computed: {
     ...mapGetters(["LOADING_DATA", "EXPERIENCES_LIST"]),

@@ -1,13 +1,19 @@
 <template>
   <div>
-    <head-title>Modifier une compétence</head-title>
-    <div class="" v-if="LOADING_COMPETENCES">LOADING COMPETENCE...</div>
-    <div class="" v-else>
-      <div class="" v-if="COMPETENCE">
+    <head-title>Nouvelle compétence</head-title>
+    <div class="">
+      <form @submit.prevent="submit()">
         <div class="">
-          <ValidationError :errors="FORM_VALIDATION_ERRORS" column="titre" />
+          <ValidationError
+            :errors="FORM_VALIDATION_ERRORS"
+            column="titre"
+          />
           <label for="titre">Titre de la compétence</label>
-          <input type="text" class="" v-model="COMPETENCE.titre" />
+          <input
+            type="text"
+            class="border-2 p-1 rounded"
+            v-model="competence.titre"
+          />
         </div>
         <div class="">
           <ValidationError
@@ -19,60 +25,53 @@
             <input
               type="radio"
               name="rating-1"
-              class="mask  mask-star "
-              v-for="(item, index) in (1,5)"
+              class="mask mask-star text-primary"
+              v-for="(item, index) in (1, 5)"
               :key="index"
-              :checked="item == COMPETENCE.evaluation"
               :value="item"
-              v-model="COMPETENCE.evaluation"
+              :checked="item == competence.evaluation"
+              v-model="competence.evaluation"
             />
           </div>
         </div>
-        <submit-button @click="submit">Enregistrer</submit-button>
-        <delete-record
-          dispatchingName="DELETE_COMPETENCE"
-          :dispatchingParam="this.$route.params.id"
-          redirectRoute="competences"
-        /> 
-      </div >
+        <submit-button>Enregistrer</submit-button>
+      </form>
     </div>
   </div>
-</template> 
+</template>
 <script>
 import { mapGetters } from "vuex";
 import HeadTitle from "../../Components/Layouts/HeadTitle.vue";
 import SubmitButton from "../../Components/Layouts/SubmitButton.vue";
 import ValidationError from "../../components/Layouts/ValidationError.vue";
-import DeleteRecord from "../../Components/Layouts/DeleteRecord.vue";
 export default {
-  name: "CompetenceEdit",
+  name: "competenceCreate",
   data() {
     return {
+      competence: {
+        titre: "",
+        evaluation: 1,
+      },
     };
   },
   components: {
     HeadTitle,
     SubmitButton,
     ValidationError,
-    DeleteRecord,
   },
   computed: {
-    ...mapGetters([
-      "COMPETENCE",
-      "LOADING_COMPETENCES",
-      "FORM_VALIDATION_ERRORS",
-    ]),
+    ...mapGetters(["FORM_VALIDATION_ERRORS"]),
   },
   methods: {
     submit() {
       this.$store.commit("SET_LOADING_SUBMIT", true);
       this.$store
-        .dispatch("MODIFIER_COMPETENCE", this.COMPETENCE)
+        .dispatch("SAVE_COMPETENCE", this.competence)
         .then((result) => {
-          this.$router.push({ name: "competences" });
-          this.$store.commit("SET_LOADING_SUBMIT", false);
           this.$store.commit("SET_FORM_VALIDATION_ERRORS", "");
-          console.log(result.data);
+          this.$store.commit("SET_LOADING_SUBMIT", false);
+            this.$router.push({ name: "competences" });
+          // console.log(result);
         })
         .catch((err) => {
           this.$store.commit("SET_LOADING_SUBMIT", false);
@@ -85,7 +84,6 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("GET_COMPETENCE", this.$route.params.id);
     this.$store.commit("SET_FORM_VALIDATION_ERRORS", "");
   },
 };

@@ -46,12 +46,14 @@
         <p>Aucune compétence enregistrée</p>
       </div>
     </div>
+      <bottom-button link="competenceCreate"/>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
 import HeadTitle from "../../Components/Layouts/HeadTitle.vue";
 import Card from "../../Components/Layouts/Card.vue";
+import BottomButton from '../../components/Layouts/BottomButton.vue';
 
 export default {
   name: "Competence",
@@ -62,6 +64,7 @@ export default {
   components: {
     Card,
     HeadTitle,
+    BottomButton,
   },
   computed: {
     ...mapGetters(["COMPETENCES_LIST", "LOADING_DATA"]),
