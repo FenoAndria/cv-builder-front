@@ -5,6 +5,8 @@ import ProfilIndex from '../views/Profil/Index.vue'
 import ProfilEdit from '../views/Profil/edit.vue'
 import ExperienceIndex from '../views/Experiences/Index.vue'
 import ExperienceEdit from '../views/Experiences/Edit.vue'
+import FormationIndex from '../views/Formations/Index.vue'
+import FormationEdit from '../views/Formations/Edit.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -29,20 +31,40 @@ const router = createRouter({
         {
             path: '/experiences',
             name: 'experiences',
-            component: ExperienceIndex,
-        },
-        {
-            path: '/experiences/:id',
-            name: 'experienceEdit',
-            component: ExperienceEdit,
-        },
-        {
-            path: '/langues',
-            name: 'langues',
+            redirect: { name: 'experienceIndex' },
+            children: [
+                {
+                    path: 'index',
+                    name: 'experienceIndex',
+                    component: ExperienceIndex,
+                },
+                {
+                    path: ':id',
+                    name: 'experienceEdit',
+                    component: ExperienceEdit,
+                },
+            ]
         },
         {
             path: '/formations',
             name: 'formations',
+            redirect: { name: 'formationIndex' },
+            children: [
+                {
+                    path: 'index',
+                    name: 'formationIndex',
+                    component: FormationIndex,
+                },
+                {
+                    path: ':id',
+                    name: 'formationEdit',
+                    component: FormationEdit,
+                },
+            ]
+        },
+        {
+            path: '/langues',
+            name: 'langues',
         },
         {
             path: '/competences',
