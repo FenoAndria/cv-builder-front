@@ -57,6 +57,7 @@
           </div>
           <div class="">
             <submit-button @click="submit()">Enregistrer</submit-button>
+            <delete-record dispatchingName="DELETE_EXPERIENCE" :dispatchingParam="this.$route.params.id" redirectRoute="experiences"/>
           </div>
         </div>
       </div>
@@ -68,6 +69,7 @@ import { mapGetters } from "vuex";
 import HeadTitle from "../../components/Layouts/HeadTitle.vue";
 import ValidationError from "../../components/Layouts/ValidationError.vue";
 import SubmitButton from "../../components/Layouts/SubmitButton.vue";
+import DeleteRecord from '../../components/Layouts/DeleteRecord.vue';
 
 export default {
   name: "ExperienceEdit",
@@ -80,6 +82,7 @@ export default {
     HeadTitle,
     ValidationError,
     SubmitButton,
+    DeleteRecord
   },
   computed: {
     ...mapGetters([
