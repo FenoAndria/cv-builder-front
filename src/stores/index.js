@@ -7,6 +7,8 @@ import form_validation_errors from './form_validation_errors'
 import competences from './competences'
 import langues from './langues'
 
+import form_validation_errors from './form_validation_errors'
+import auth from './auth'
 const store = new Vuex.Store({
     modules: {
         profil,
@@ -16,6 +18,8 @@ const store = new Vuex.Store({
         form_validation_errors,
         competences,
         langues,
+        form_validation_errors,
+        auth,
     }
 })
 export default store

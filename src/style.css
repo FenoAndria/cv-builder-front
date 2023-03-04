@@ -31,7 +31,7 @@ input {
 }
 
 textarea {
-  @apply textarea block w-full text-dark text-base ring-1 ring-purple focus:outline-none ring-offset-1 focus:ring-offset-purple
+  @apply textarea block w-full text-dark text-base ring-1 ring-purple focus:outline-none ring-offset-1 focus:ring-offset-purple focus:border-2 focus:border-primary
 }
 
 label {
