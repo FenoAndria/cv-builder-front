@@ -20,7 +20,6 @@ const mutations = {
     SET_PROFIL_PUBLISHED: (state, profil_published) => state.profil_published = profil_published,
     SET_LOADING_PROFIL: (state, loadingProfil) => state.loadingProfil = loadingProfil,
     SET_LOADING_COUNTER: (state, loadingCounter) => state.loadingCounter = loadingCounter,
-    // ADD_LANGUES: (state, type_produit) => state.types_produit.unshift(type_produit)
 }
 const actions = {
     GET_PROFIL: async ({ commit }) => {
@@ -44,12 +43,11 @@ const actions = {
         await API().get('counter')
             .then((result) => {
                 commit('SET_COUNTER', result.data.counter)
+                commit('SET_LOADING_COUNTER', false)
                 // console.log(result.data);
             }).catch((err) => {
-                console.log(err.response);
-            })
-            .finally(() => {
                 commit('SET_LOADING_COUNTER', false)
+                console.log(err.response);
             })
     },
     VOIR_PROFIL: async ({ commit }, id) => {

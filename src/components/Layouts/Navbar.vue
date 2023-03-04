@@ -93,7 +93,7 @@
           <li class="nav-item p-2" v-for="link in links">
             <router-link
               active-class="nav-link-active"
-              :to="{ name: link.name }"
+              :to="{ name: link.name, params: link.params }"
               :class="'nav-link text-maroon hover:text-orange focus:text-orange p-0 '"
               >{{ link.title }}
             </router-link>
@@ -210,7 +210,7 @@ export default {
   data() {
     return {
       links: [
-        { title: "VOIR", name: "Voir" },
+        { title: "VOIR", name: "Voir", params: { id: 1 } },
         { title: "A Propos", name: "profil" },
         { title: "Expériences", name: "experiences" },
         { title: "Formations", name: "formations" },

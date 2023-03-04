@@ -15,6 +15,7 @@ import CompetenceCreate from '../views/Competences/Create.vue'
 import LangueIndex from '../views/Langues/Index.vue'
 import LangueEdit from '../views/Langues/Edit.vue'
 import LangueCreate from '../views/Langues/Create.vue'
+import Voir from '../views/Voir/Index.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -129,8 +130,9 @@ const router = createRouter({
             name: 'autres',
         },
         {
-            path: '/voir',
+            path: '/voir/:id',
             name: 'Voir',
+            component: Voir
         },
         {
             path: '/:pathMatch(.*)*',
